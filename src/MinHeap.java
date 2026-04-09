@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+
+public class MinHeap {
+    // ArrayList que va a almacenar los elementos del monticulo
+    private ArrayList<Integer> heap;
+
+    // Constructor
+    public MinHeap(){
+        heap = new ArrayList<>();
+    }
+
+    // Metodo para insertar
+    public void insertar(int valor){
+        heap.add(valor);
+        // Llama a upHeapify para acomodar el nuevo valor
+        // Pasando la posición del último elemento porque ahí se insertó
+        upHeapify(heap.size() - 1);
+    }
+
+    // Metodo que sube un elemento hasta la posicion correcta
+    private void upHeapify(int indice){
+        // Mientras el nodo no sea la raiz
+        while (indice > 0){
+
+            int indicePadre = (indice - 1) / 2;
+
+            // Si el valor actual es menor que su padre, se intercambian
+            if(heap.get(indice) < heap.get(indicePadre)){
+                int temp = heap.get(indice);
+                heap.set(indice, heap.get(indicePadre));
+                heap.set(indicePadre, temp);
+
+                // Se sigue revisando desde la nueva posicion del nodo
+                indice = indicePadre;
+            }
+            else{
+                // Si no es menor que el padre quiere decir que ya esta en su posicion correcta
+                break;
+            }
+        }
+    }
+
+    // Metodo para mostrar contenido
+    public void mostrarHeap(){
+        System.out.println(heap);
+    }
+}
