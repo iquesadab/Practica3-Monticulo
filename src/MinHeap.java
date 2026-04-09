@@ -82,4 +82,19 @@ public class MinHeap {
             }
         }
     }
+
+    // Metodo que devuelve el valor minimo del monticulo sin eliminarlo
+    public int peek() {
+
+        // Verificar si el heap esta vacio
+        if (heap.isEmpty()) {
+            System.out.println("El montículo está vacío");
+            return -1;
+        }
+
+        // El elemento minimo siempre esta en la raiz (posicion 0)
+        return heap.get(0);
+    }
+
+
 }
