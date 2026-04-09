@@ -126,4 +126,20 @@ public class MinHeap {
         return minimo;
     }
 
+    // Metodo que convierte un arreglo desordenado en un montículo mínimo
+    public void heapify(ArrayList<Integer> datos) {
+
+        // Reemplazamos el heap actual con los datos recibidos
+        heap = datos;
+
+        // Empezamos desde el último nodo que tiene hijos
+        int ultimoPadre = (heap.size() / 2) - 1;
+
+        // Recorremos desde ese nodo hasta la raíz
+        for (int i = ultimoPadre; i >= 0; i--) {
+
+            // Aplicamos downHeapify en cada nodo
+            downHeapify(i);
+        }
+    }
 }
