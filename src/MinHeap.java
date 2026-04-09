@@ -96,5 +96,34 @@ public class MinHeap {
         return heap.get(0);
     }
 
+    // Metodo que elimina y devuelve el elemento mínimo del montículo
+    public int eliminarMin() {
+
+        // Verificar si el heap está vacío
+        if (heap.isEmpty()) {
+            System.out.println("El montículo está vacío");
+            return -1;
+        }
+
+        // Guardar el valor mínimo (siempre está en la raíz)
+        int minimo = heap.get(0);
+
+        // Obtener el último elemento del heap
+        int ultimo = heap.get(heap.size() - 1);
+
+        // Colocar el último elemento en la raíz
+        heap.set(0, ultimo);
+
+        // Eliminar el último elemento del arreglo
+        heap.remove(heap.size() - 1);
+
+        // Restaurar la propiedad del heap si aún quedan elementos
+        if (!heap.isEmpty()) {
+            downHeapify(0);
+        }
+
+        // Devolver el valor mínimo que se eliminó
+        return minimo;
+    }
 
 }
