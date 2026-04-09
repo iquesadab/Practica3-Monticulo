@@ -44,4 +44,42 @@ public class MinHeap {
     public void mostrarHeap(){
         System.out.println(heap);
     }
+
+    // Metodo que baja un nodo hasta la posicion correcta
+    private void downHeapify(int indice){
+
+        // Repetir hasta que el nodo quede bien acomodado
+        while(true){
+
+            // calcular indice de hijos
+            int hijoIzquierdo = 2 * indice + 1;
+            int hijoDerecho = 2 * indice + 2;
+
+            // Asumimos que el menor es el nodo actual(padre)
+            int menor = indice;
+
+            // Verificar si el hijo izquierdo existe y es menor
+            if(hijoIzquierdo < heap.size() && heap.get(hijoIzquierdo) < heap.get(menor)){
+                menor = hijoIzquierdo;
+            }
+
+            // Verificar si el hijo derecho existe y es menor
+            if(hijoDerecho < heap.size() && heap.get(hijoDerecho) < heap.get(menor)){
+                menor = hijoDerecho;
+            }
+
+            // Si la posición del menor cambió, entonces hay que intercambiar
+            if(menor != indice){
+                int temp = heap.get(indice);
+                heap.set(indice, heap.get(menor));
+                heap.set(menor, temp);
+
+                // Seguimos revisando desde la nueva posición del nodo
+                indice = menor;
+
+            } else {
+                break;
+            }
+        }
+    }
 }
