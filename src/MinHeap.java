@@ -42,7 +42,7 @@ public class MinHeap {
 
     // Metodo para mostrar contenido
     public void mostrarHeap(){
-        System.out.println(heap);
+        System.out.println(heap + "\n");
     }
 
     // Metodo que baja un nodo hasta la posicion correcta
