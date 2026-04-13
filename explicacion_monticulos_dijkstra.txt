@@ -1,0 +1,23 @@
+Aplicación de los montículos en el algoritmo de Dijkstra
+
+El algoritmo de Dijkstra se utiliza para encontrar el camino más corto desde un nodo inicial hacia todos los demás nodos dentro de un grafo. Un grafo es una estructura que representa conexiones entre diferentes puntos, por ejemplo ciudades conectadas por carreteras o computadoras conectadas en una red.
+
+La idea principal del algoritmo es ir explorando los nodos poco a poco, siempre escogiendo el nodo que tenga la distancia más pequeña desde el nodo inicial. Para lograr esto, el algoritmo necesita una forma eficiente de encontrar rápidamente cuál nodo tiene la menor distancia en cada momento.
+
+Aquí es donde entran los montículos, específicamente los montículos mínimos (MinHeap). Un montículo mínimo es una estructura de datos donde el elemento más pequeño siempre se encuentra en la raíz. Esto permite acceder rápidamente al valor mínimo sin tener que revisar todos los elementos.
+
+En el algoritmo de Dijkstra, el montículo mínimo se utiliza como una cola de prioridad. En esta cola se guardan los nodos junto con la distancia mínima conocida desde el nodo inicial. Cada vez que el algoritmo necesita continuar el proceso, toma del montículo el nodo que tenga la distancia más pequeña.
+
+Cuando el algoritmo encuentra un camino más corto hacia otro nodo del grafo, se actualiza la distancia de ese nodo y se vuelve a organizar dentro del montículo. Gracias a esto, el montículo siempre mantiene ordenados los nodos según su distancia, permitiendo que el algoritmo trabaje de forma más eficiente.
+
+El uso de montículos mejora el rendimiento del algoritmo de Dijkstra porque permite insertar elementos y obtener el mínimo de forma rápida, en lugar de tener que revisar todos los nodos cada vez. Esto es especialmente importante cuando se trabaja con grafos grandes.
+
+En resumen, los montículos permiten implementar la cola de prioridad que necesita el algoritmo de Dijkstra para seleccionar siempre el nodo con la menor distancia. Gracias a esta estructura de datos, el algoritmo puede encontrar los caminos más cortos de manera más rápida y eficiente.
+
+Una forma fácil de entender cómo funciona esto es pensar en un sistema de navegación como Google Maps o Waze. Supongamos que una persona quiere ir desde su casa hasta diferentes lugares de la ciudad. El sistema debe ir analizando diferentes rutas para encontrar cuál es la más corta o la más rápida.
+
+El algoritmo de Dijkstra funciona de manera similar. Empieza desde un punto inicial y analiza las posibles rutas hacia otros lugares. En cada paso, el algoritmo necesita escoger cuál es el siguiente lugar que está más cerca según las distancias calculadas hasta ese momento.
+
+Aquí es donde el montículo mínimo ayuda. El montículo mantiene organizadas todas las posibles rutas pendientes de analizar, colocando siempre en la parte superior la ruta con la menor distancia. De esta manera, el algoritmo puede seleccionar rápidamente cuál ruta explorar primero.
+
+Gracias a esta organización, el algoritmo no necesita revisar todas las rutas cada vez. Simplemente toma la que está arriba del montículo, que siempre será la más corta hasta ese momento. Esto hace que el proceso sea mucho más rápido y eficiente, especialmente cuando se trabaja con muchos nodos o rutas posibles.
